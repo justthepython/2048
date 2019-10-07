@@ -178,3 +178,4 @@ def main(stdscr):
         state = state_actions[state]()
 curses.wrapper(main)
 #,,,
+#...
