@@ -6,9 +6,9 @@ letter_codes = [ord(ch) for ch in 'WASDRQwasdrq']
 actions = ['Up', 'Left', 'Down', 'Right', 'Restart', 'Exit']
 actions_dict = dict(zip(letter_codes, actions * 2))
 
-def get_user_action(keyboard):    
+def get_user_action(keyboard):
     char = "N"
-    while char not in actions_dict:    
+    while char not in actions_dict:
         char = keyboard.getch()
     return actions_dict[char]
 
@@ -118,7 +118,7 @@ class GameField(object):
         (i,j) = choice([(i,j) for i in range(self.width) for j in range(self.height) if self.field[i][j] == 0])
         self.field[i][j] = new_element
     def move_is_possible(self, direction):
-        def row_is_left_movable(row): 
+        def row_is_left_movable(row):
             def change(i): # true if there'll be change in i-th tile
                 if row[i] == 0 and row[i + 1] != 0: # Move
                     return True
@@ -149,7 +149,7 @@ def main(stdscr):
     def not_game(state):
         game_field.draw(stdscr)
         action = get_user_action(stdscr)
-        responses = defaultdict(lambda: state) 
+        responses = defaultdict(lambda: state)
         responses['Restart'], responses['Exit'] = 'Init', 'Exit'
         return responses[action]
     def game():
@@ -177,3 +177,4 @@ def main(stdscr):
     while state != 'Exit':
         state = state_actions[state]()
 curses.wrapper(main)
+#,,,
