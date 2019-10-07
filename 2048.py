@@ -177,4 +177,5 @@ def main(stdscr):
     while state != 'Exit':
         state = state_actions[state]()
 curses.wrapper(main)
-# what's wrong
+#,,,
+#...
